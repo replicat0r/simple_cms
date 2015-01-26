@@ -1,36 +1,32 @@
-<div class="notice">
-<%= flash[:notice] %>
-</div>
+<% @page_title = "Sections" %>
+
 <div class="sections index">
-  <h2>sections</h2>
+  <h2>Sections</h2>
 
-  <%= link_to("Add New section", {:action => 'new'}, :class => 'action new') %>
+  <%= link_to("Add New Section", {:action => 'new'},  :class => 'action new pull-right') %>
 
-  <table class="listing" summary="section list">
+  <table class="listing table table-bordered" summary="Section list">
     <tr class="header">
       <th>&nbsp;</th>
-      <th>section</th>
+      <th>Page ID</th>
+      <th>Section</th>
+      <th>Content Type</th>
       <th>Visible</th>
-      <th>Pages</th>
       <th>Actions</th>
     </tr>
     <% @sections.each do |section| %>
     <tr>
       <td><%= section.position %></td>
+      <td><%= section.page_id %></td>
       <td><%= section.name %></td>
-                  <td class="center"><%= section.page_id %></td>
-
-      <td class="center"><%= section.visible ? 'Yes' : 'No' %></td>
-      <td class="center"><%= section.content %></td>
-
+      <td><%= section.content_type %></td>
+      <td class="center"><%= status_tag(section.visible) %></td>
       <td class="actions">
         <%= link_to("Show", {:action => 'show', :id => section.id}, :class => 'action show') %>
-        <%= link_to("Edit", {:action => 'edit',:id => section.id}, :class => 'action edit') %>
-        <%= link_to("Delete", {:action => 'delete',:id => section.id}, :class => 'action delete') %>
-
+        <%= link_to("Edit", {:action => 'edit', :id => section.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => section.id}, :class => 'action delete') %>
       </td>
     </tr>
     <% end %>
   </table>
 </div>
-  

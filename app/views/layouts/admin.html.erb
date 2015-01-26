@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple CMS | <%= @page_title || "Admin" %></title>
+    <%= stylesheet_link_tag('application', :media => 'all') %>
+  </head>
+  <body class="container-fluid">
+    <div id="header" class="header">
+      <h1 class="text-center">Simple CMS Admin</h1>
+    </div>
+    <div >
+      <% if !flash[:notice].blank? %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <div >
+        <%= yield %>
+      </div>
+    </div>
+ 
+  </body>
+</html>

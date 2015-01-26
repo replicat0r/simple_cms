@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout :false
+  layout "admin"
   # create
   def new
     @page = Page.new

@@ -1,12 +1,11 @@
-<div class="notice">
-<%= flash[:notice] %>
-</div>
+<% @page_title = "Show Subject" %>
+
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="subjects show">
   <h2>Show Subject</h2>
 
-  <table summary="Subject detail view">
+  <table summary="Subject detail view" class="table">
     <tr>
       <th>Name</th>
       <td><%= @subject.name %></td>
