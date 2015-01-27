@@ -3,21 +3,42 @@
   <head>
     <title>Simple CMS | <%= @page_title || "Admin" %></title>
     <%= stylesheet_link_tag('application', :media => 'all') %>
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   </head>
   <body class="container-fluid">
     <div id="header" class="header">
       <h1 class="text-center">Simple CMS Admin</h1>
     </div>
     <div >
-      <% if !flash[:notice].blank? %>
-        <div class="notice">
-          <%= flash[:notice] %>
-        </div>
+      <% if flash[:toastr] %>
+      <script type="text/javascript">
+      toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "newestOnTop": true,
+      "progressBar": true,
+      "positionClass": "toast-top-right",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+      }
+      <% [flash[:toastr]].each do |type, message| %>
+      toastr.<%= type %>("<%= message %>")
+      <% end %>
+      </script>
       <% end %>
       <div >
         <%= yield %>
       </div>
     </div>
- 
+    
   </body>
 </html>

@@ -127,6 +127,8 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
+    toastr-rails (1.0.3)
+      railties (>= 3.1.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -144,3 +146,4 @@ DEPENDENCIES
   rails (= 4.0.0)
   sass-rails (>= 3.2)
   sdoc
+  toastr-rails
