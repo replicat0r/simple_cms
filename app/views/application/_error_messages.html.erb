@@ -1,0 +1,19 @@
+<!-- 
+1. check to see if there is error on the pages
+
+2. general message
+
+3. fetch all errors and then loop them to display them -->
+
+
+<% if object && object.errors.size > 0 %>
+	<div>
+	<ul><% object.errors.full_messages.each do |msg| %>
+
+	<li> <%= msg %>
+
+	<% end %>
+	
+	</ul></div>
+
+<% end %>

@@ -8,36 +8,57 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = Subject.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
+
     @subject = Subject.new({:name => "Default"})
+    @subject_count= Subject.count + 1
 
   end
 
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
-      flash[:toastr] = ["success",'Subject #{@subject.name} successfully updated']
+      #flash.now[:toastr] = ["success",'Subject #{@subject.name} successfully created']
+      @subjects = Subject.all
+      respond_to do |shenalie|
+        shenalie.html {redirect_to(:action => "index")}
+        shenalie.js
 
-      redirect_to(:action => "index")
+      end
+
     else
+      @subject_count= Subject.count+1
+
       render('new')
     end
   end
 
   def edit
     @subject= Subject.find(params[:id])
+    @subject_count= Subject.count
   end
 
   def update
     @subject= Subject.find(params[:id])
 
     if  @subject.update_attributes(subject_params)
-      flash[:toastr] = "Subject #{@subject.name} successfully updated"
+      flash[:toastr] = ["success",'Subject #{@subject.name} successfully updated']
+      #fetch all subject and store in @subject, so the view template can refresh the view
+      @subjects = Subject.sorted
 
-      redirect_to(:action => "show", :id => @subject.id)
+      respond_to do |format|
+        format.html {  redirect_to(:action => "show", :id => @subject.id)}
+        format.js
+      end
     else
+      @subject_count= Subject.count
+
       render('edit')
     end
   end
@@ -48,7 +69,7 @@ class SubjectsController < ApplicationController
 
   def destroy
     @subject = Subject.find(params[:id]).destroy
-      flash[:toastr] = ["error",'Subject #{@subject.name} successfully updated']
+    flash[:toastr] = ["error",'Subject #{@subject.name} successfully deleted']
     redirect_to(:action =>'index')
 
   end

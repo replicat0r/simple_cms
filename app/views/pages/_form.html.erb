@@ -9,7 +9,7 @@
     <%= f.label(:permalink) %>    <%= f.text_field(:permalink,:class=>"form-control") %>
   </div>
   <div class="form-group">
-    <%= f.label(:position) %>    <%= f.text_field(:position,:class=>"form-control") %>
+    <%= f.select(:position,1..@page_count) %>    <%= f.text_field(:position,:class=>"form-control") %>
   </div>
   <div class="form-group">
     <%= f.label(:visible) %>

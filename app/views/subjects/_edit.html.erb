@@ -1,0 +1,37 @@
+
+<div class="modal fade" id="editform">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= controller.action_name.capitalize + " Subject" %></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(:subject, :url => {:action => 'update', :id => @subject.id},:remote => true) do |f| %>
+        <%= error_messages_for(@subject) %>
+        <table summary="Subject form fields" class="table">
+          <tr>
+            <th><%= f.label(:name, "Name") %></th>
+            <td><%= f.text_field(:name) %></td>
+          </tr>
+          <tr>
+            <th><%= f.label(:position, "Position") %></th>
+            <td><%= f.select(:position,1..@subject_count) %></td>
+          </tr>
+          <tr>
+            <th><%= f.label(:visible) %></th>
+            <td><%= f.check_box(:visible) %></td>
+          </tr>
+          <tr>
+            <th><%= f.label(:created_at) %></th>
+            <td><%= f.datetime_select(:created_at, :order => [:month, :year, :day]) %></td>
+          </tr>
+        </table>
+        <div class="form-buttons">
+          <%= submit_tag(controller.action_name.capitalize + " Subject") %>
+        </div>
+      <% end %>      </div>
+
+      </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->

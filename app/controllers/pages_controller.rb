@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   # create
   def new
     @page = Page.new
+          @page_count = Page.count+1
+
   end
 
   def create
@@ -12,6 +14,7 @@ class PagesController < ApplicationController
 
       redirect_to :action => 'index'
     else
+      @page_count = Page.count+1
       render 'new'
     end
 
@@ -26,6 +29,7 @@ class PagesController < ApplicationController
   end
   def edit
     @page = Page.find(params[:id])
+    @page_count = Page.count
 
   end
 
@@ -37,6 +41,7 @@ class PagesController < ApplicationController
 
       redirect_to :action => 'index'
     else
+      @page_count = Page.count
       render 'edit'
     end
 
@@ -49,7 +54,7 @@ class PagesController < ApplicationController
 
   def destroy
     @page=Page.find(params[:id]).destroy
-      flash[:toastr] = ["success",'page #{@page.name} successfully updated']
+    flash[:toastr] = ["success",'page #{@page.name} successfully updated']
     redirect_to :action => 'index'
   end
 

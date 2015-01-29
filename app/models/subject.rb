@@ -1,5 +1,8 @@
 class Subject < ActiveRecord::Base
   has_many :pages
+
+  validates_presence_of(:name)
+  validates_length_of :name , :maximum => 225
   
   scope :visible, lambda { where(:visible => true)}
   scope :invisible, lambda { where(:visible => false)}
