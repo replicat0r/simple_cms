@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   # create
   def new
     @page = Page.new
-          @page_count = Page.count+1
+    @page_count = Page.count+1
 
   end
 
@@ -22,6 +22,10 @@ class PagesController < ApplicationController
   #read
   def index
     @pages = Page.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @pages.to_csv}
+    end
   end
 
   def show
