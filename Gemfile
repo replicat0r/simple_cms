@@ -2,9 +2,11 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
+gem "iconv", "~> 1.0.3"
 # Use mysql as the database for Active Record
 gem 'mysql2'
+gem 'roo'
+
 
 # Use SCSS for stylesheets
 #gem 'sass-rails', '~> 4.0.0'
@@ -29,6 +31,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'sass-rails', '>= 3.2'
 gem 'toastr-rails'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

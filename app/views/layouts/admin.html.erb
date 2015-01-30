@@ -10,7 +10,7 @@
     <div id="header" class="header">
       <h1 class="text-center">Simple CMS Admin</h1>
     </div>
-    <div >
+    <div>
       <% if flash[:toastr] %>
       <script type="text/javascript">
       toastr.options = {
@@ -35,10 +35,8 @@
       <% end %>
       </script>
       <% end %>
-      <div >
+      </div >
         <%= yield %>
-      </div>
-    </div>
     
   </body>
 </html>

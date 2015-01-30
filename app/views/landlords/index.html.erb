@@ -1,0 +1,28 @@
+<table class="table table-bordered">
+   <tr class="header">
+      <th>name</th>
+      <th>address</th>
+      <th>type</th>
+      <th>bedroom</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>contacted_date</th>
+      <th>email used</th>
+   </tr>
+   <% @landlords.each do |landlords| %>
+   <tr>
+      <td><%= landlords.name %></td>
+      <td><%= landlords.address %></td>
+      <td><%= landlords.property_type  %></td>
+      <td><%= landlords.bedroom %></td>
+      <td><%= landlords.email %></td>
+      <td><%= landlords.phone %></td>
+      <td><%= landlords.contacted_date %></td>
+      <td><%= landlords.email_used %></td>
+   </tr>
+   <% end %>
+</table>
+<%= form_tag({:action => 'import'},multipart: true) do  %>
+<%= file_field_tag(:file) %>
+<%= submit_tag 'upload' %>
+<% end %>
