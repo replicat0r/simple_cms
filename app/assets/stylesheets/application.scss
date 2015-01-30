@@ -9,6 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+  *= require jquery-ui
+
  *= require toastr
 
 
@@ -25,4 +27,35 @@ html, body{
 
 .field_with_errors{
 	border:1px solid red;
+}
+
+.flash{
+
+  -moz-animation: flash 2s ease-out;
+  -moz-animation-iteration-count: 1;
+
+  -webkit-animation: flash 2s ease-out;
+  -webkit-animation-iteration-count: 1;
+
+  -ms-animation: flash 2s ease-out;
+  -ms-animation-iteration-count: 1;
+
+}
+
+@-webkit-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:rgba(22, 160, 133,0.3);}        
+    100% {background-color:none;}
+}
+
+@-moz-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:#fbf8b2;}        
+    100% {background-color:none;}
+}
+
+@-ms-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:rgba(22, 160, 133,0.3);}        
+    100% {background-color:none;}
 }

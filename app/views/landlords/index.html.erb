@@ -11,14 +11,14 @@
    </tr>
    <% @landlords.each do |landlords| %>
    <tr>
-      <td><%= landlords.name %></td>
-      <td><%= landlords.address %></td>
-      <td><%= landlords.property_type  %></td>
-      <td><%= landlords.bedroom %></td>
-      <td><%= landlords.email %></td>
-      <td><%= landlords.phone %></td>
-      <td><%= landlords.contacted_date %></td>
-      <td><%= landlords.email_used %></td>
+      <td><%= best_in_place landlords , :name ,:ok_button => "confirm" %></td>
+      <td><%= best_in_place landlords , :address ,:classes => 'highlight_on_success' %></td>
+      <td><%= best_in_place landlords , :property_type  %></td>
+      <td><%= best_in_place landlords , :bedroom  %></td>
+      <td><%= best_in_place landlords , :email  %></td>
+      <td><%= best_in_place landlords , :phone  %></td>
+      <td><%= best_in_place landlords , :contacted_date  %></td>
+      <td><%= best_in_place landlords , :email_used  %></td>
    </tr>
    <% end %>
 </table>

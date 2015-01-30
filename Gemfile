@@ -31,7 +31,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'sass-rails', '>= 3.2'
 gem 'toastr-rails'
-
+gem 'best_in_place'
+gem 'jquery-ui-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
