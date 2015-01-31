@@ -1,7 +1,7 @@
 class LandlordsController < ApplicationController
   layout 'admin'
   def index
-    @landlords = Landlord.all
+    @landlords = Landlord.order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -38,6 +38,16 @@ class LandlordsController < ApplicationController
   private
    def landlords_params
    	params.require(:landlord).permit(:name, :address,:property_type,:bedroom,:email,:phone,:contacted_date,:email_used)
+   end
+
+   def sort_column
+   	#get params sort or defult to name
+   	Landlord.column_names.include?(params[:sort]) ? params[:sort] : 'name'
+   end
+
+   def sort_direction
+   	%w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+   	#get params direction or default to asc
    end
 
 end

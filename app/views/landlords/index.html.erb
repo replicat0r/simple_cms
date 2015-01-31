@@ -1,5 +1,5 @@
 <table class="table table-bordered">
-   <tr class="header">
+<!--    <tr class="header">
       <th>name</th>
       <th>address</th>
       <th>type</th>
@@ -8,6 +8,17 @@
       <th>phone</th>
       <th>contacted_date</th>
       <th>email used</th>
+   </tr> -->
+
+      <tr class="header">
+      <th><%= link_to(sortable "name" ) %></th>
+      <th><%= link_to(sortable "address" ) %></th>
+      <th><%= link_to(sortable "property_type" ) %></th>
+      <th><%= link_to(sortable "bedroom" ) %></th>
+      <th><%= link_to(sortable "email" ) %></th>
+      <th><%= link_to(sortable "phone" ) %></th>
+      <th><%= link_to(sortable  "contacted_date", "Date Contacted" ) %></th>
+      <th><%= link_to(sortable "email_used" , "Email Used") %></th>
    </tr>
    <% @landlords.each do |landlords| %>
    <tr>
