@@ -29,6 +29,7 @@ GEM
     autoprefixer-rails (5.0.0.3)
       execjs
       json
+    bcrypt-ruby (3.0.1)
     best_in_place (3.0.3)
       actionpack (>= 3.2)
       railties (>= 3.2)
@@ -155,6 +156,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   best_in_place
   bootstrap-sass (~> 3.3.3)
   guard
